@@ -61,6 +61,7 @@ html {
 }
 
 .navbar .menu li a {
+  display: block;
   color: #fff;
   font-size: 18px;
   font-weight: 500;
@@ -82,6 +83,33 @@ html {
   font-size: 23px;
   cursor: pointer;
   display: none;
+}
+.scroll-up-btn {
+  position: fixed;
+  height: 45px;
+  width: 42px;
+  background: #8b008b;
+  right: 30px;
+  bottom: 10px;
+  text-align: center;
+  line-height: 45px;
+  color: #fff;
+  z-index: 9999;
+  font-size: 30px;
+  border-radius: 6px;
+  border-bottom-width: 2px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.scroll-up-btn.show {
+  bottom: 30px;
+  opacity: 1;
+  pointer-events: auto;
+}
+.scroll-up-btn:hover {
+  filter: brightness(90%);
 }
 
 /* home section styling */
@@ -140,7 +168,7 @@ section {
 .about,
 .services,
 .skills,
-.teams,
+.projects,
 .contact,
 footer {
   font-family: "Poppins", sans-serif;
@@ -358,20 +386,20 @@ section .title::after {
 }
 
 /* projects section styling  */
-.teams {
+.projects {
   color: #fff;
   background: #111;
 }
 
-.teams .title::before {
-  background: #fff;
-}
-
-.teams .title::after {
+.projects .title::after {
   background: #111;
   content: "what i had done";
 }
-.teams .carousel .card {
+.projects .title::before {
+  background: #fff;
+}
+
+.projects .carousel .card {
   background: #222;
   border-radius: 6px;
   padding: 25px 35px;
@@ -379,18 +407,19 @@ section .title::after {
   overflow: hidden;
   transition: all 0.3s ease;
 }
-.teams .carousel .card:hover {
+.projects .carousel .card:hover {
   background: #8b008b;
 }
 
-.teams .carousel .card .box {
+.projects .carousel .card .box {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
 }
 
-.teams .carousel .card img {
+.projects .carousel .card img {
   height: 200px;
   width: 200px;
   object-fit: cover;
@@ -399,20 +428,20 @@ section .title::after {
   transition: all 0.3s ease;
 }
 
-.teams .carousel .card:hover img {
+.projects .carousel .card:hover img {
   border-color: #fff;
 }
 
-.teams .carousel .card:hover .box {
+.projects .carousel .card:hover .box {
   transform: scale(1.05);
 }
 
-.teams .carousel .card .text {
+.projects .carousel .card .text {
   font-size: 25px;
   font-weight: 500;
   margin: 10px 0 7px 0;
 }
-.teams .carousel .card a {
+.projects .carousel .card a {
   display: inline-block;
   background: #8b008b;
   color: #fff;
@@ -424,7 +453,7 @@ section .title::after {
   border: 2px solid #8b008b;
   transition: all 0.3s ease;
 }
-.teams .carousel .card a:hover {
+.projects .carousel .card a:hover {
   color: #fff;
   background: #111;
 }
@@ -699,14 +728,37 @@ footer span a:hover {
   .services .services-content .card {
     width: 100%;
   }
+  .projects .title::after {
+    background: #111;
+    content: "what i had done";
+    bottom: -40px;
+  }
 }
 
 @media (max-width: 500px) {
   .home .home-content .text-2 {
     font-size: 50px;
   }
-
   .home .home-content .text-3 {
     font-size: 27px;
+  }
+  .about .about-content .right .text,
+  .skills .skills-content .left .text {
+    font-size: 19px;
+  }
+  .contact .right form .fields {
+    flex-direction: column;
+  }
+  .contact .right form .name,
+  .contact .right form .email {
+    margin: 0;
+  }
+  .scroll-up-btn {
+    right: 15px;
+    bottom: 15px;
+    height: 38px;
+    width: 35px;
+    font-size: 23px;
+    line-height: 38px;
   }
 }
